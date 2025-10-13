@@ -65,4 +65,6 @@ localmode -> aggiungere il pacchetto solo a questo progetto
 
 ## Struttura applicazione
 - .vscode: cartella nascosta usata da Visual Studio Code (**interesse zero**)
-- node_modules: cartella sempre presente nei progetti Node.js, è gestita da npm, non contiene codice modificabile **(NON È NECESSARIO, ANZI FORTEMENTE SCORAGGIABILE PUSHARLA)(**interesse zero**)
+- node_modules: cartella sempre presente nei progetti Node.js, è gestita da npm, non contiene codice modificabile **(NON È NECESSARIO, ANZI FORTEMENTE SCORAGGIABILE PUSHARLA)**. In qualsiasi momento è possibile ricostruirla con il comando `npm install` (**interesse zero**)
+- public: nella directory public vanno inseriti media (immagini, suoni, sfondi, filmati, ecc.) e veranno utilizzati nella web app
+- src: 
