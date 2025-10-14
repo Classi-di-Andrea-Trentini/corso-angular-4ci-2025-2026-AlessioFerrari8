@@ -43,24 +43,27 @@ localmode -> aggiungere il pacchetto solo a questo progetto
 
 1. Installare node.js [Scarica Node.js](https://nodejs.org/en)
 2. Installare Angular
+
     ```bash
     npm install -g @angular/cli
     ```
-    -g -> global mode
-3. Installare npm
+    > -g -> global mode
+4. Installare npm
+
     ```bash
     npm install -g npm@11.6.2
     ```
-4. Vediamo angular
+7. Vediamo angular
     ```bash
     ng version
     ```
 
 ## Creare la prima app
-1. Comando
-    ```bash
-    ng new nome-applicazione
-    ```
+Comando
+
+```bash
+ng new nome-applicazione
+```
 > Quando usiamo la CLI di Angular, è consigliabile utilizzare tutti i nomi in minuscolo, senza spazi o caratteri speciali. Se un nome prevede due o più parole, si separano con trattini (-) -> KEBAB CASE
 
 ## Struttura applicazione
