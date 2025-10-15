@@ -70,4 +70,32 @@ ng new nome-applicazione
 - .vscode: cartella nascosta usata da Visual Studio Code (**interesse zero**)
 - node_modules: cartella sempre presente nei progetti Node.js, è gestita da npm, non contiene codice modificabile **(NON È NECESSARIO, ANZI FORTEMENTE SCORAGGIABILE PUSHARLA)**. In qualsiasi momento è possibile ricostruirla con il comando `npm install` (**interesse zero**)
 - public: nella directory public vanno inseriti media (immagini, suoni, sfondi, filmati, ecc.) e veranno utilizzati nella web app
-- src: 
+- src: cartella principale, contiene tutti i sorgenti dell'applicazione
+    - style.css: stili globali applicazione
+    - main.ts: punto d'accesso dell'applicazione (**di solito non si tocca**)
+    - index.html: unica pagina HTML dell'applicazione
+    > con Angular si realizzano applicazioni SPA (Single Page Application)
+    - app: cartella che normalmente contiene componenti, servizi, classi, interfacce, ...
+        - app.config.ts: file di configurazione dell'applicazione
+        - app.routes.ts: in questo file si specifica quale componente visualizzare a seconda della URL
+        - app.html, app.css, app.ts, app.spec.ts: definiscono il componente chiamato app
+        
+
+# Lezione 15/10/2025
+Build di un applicazione
+```bash
+cd nome-applicazione
+ng build
+```
+
+Dopo averla buildata, copiamo il contenuto della cartella `dist/browser` nella cartella `app` che creiamo nel progetto e poi lanciamo con docker
+
+```bash
+docker run --name webserver -p 6000:80 -v /workspaces/corso-angular-4ci-2025-2026-AlessioFerrari8/app/:/usr/share/nginx/html nginx
+```
+
+Sennò si può usare un server con il comando
+
+```bash
+    ng serve
+```
