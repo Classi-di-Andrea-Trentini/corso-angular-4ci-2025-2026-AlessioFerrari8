@@ -74,11 +74,31 @@ ng new nome-applicazione
     - style.css: stili globali applicazione
     - main.ts: punto d'accesso dell'applicazione (**di solito non si tocca**)
     - index.html: unica pagina HTML dell'applicazione
-    > con Angular si realizzano applicazioni SPA (Single Page Application)
+        > Con Angular si realizzano applicazioni SPA (Single Page Application)
     - app: cartella che normalmente contiene componenti, servizi, classi, interfacce, ...
         - app.config.ts: file di configurazione dell'applicazione
         - app.routes.ts: in questo file si specifica quale componente visualizzare a seconda della URL
-        - app.html, app.css, app.ts, app.spec.ts: definiscono il componente chiamato app
+        - app.html, app.css, app.ts, app.spec.ts: definiscono il componente chiamato app: 
+            - app.html: template HTML del componente
+            - app.css: stili del componente
+            - app.ts: definizione business logic del componente
+            **Ogni componente viene definito attraverso una classe**. Per far capire al builder che questa è una classe speciale, si usa il decoratore `@Component`
+            ```typescript
+            import { Component, signal } from '@angular/core';
+            import { RouterOutlet } from '@angular/router';
+
+            @Component({
+            selector: 'app-root',
+            imports: [RouterOutlet],
+            templateUrl: './app.html', // questo componente usa app.html per lo stile
+            styleUrl: './app.css' // questo componente usa app.css per lo stile
+            })
+            export class App {
+            protected readonly title = signal('hello-world');
+            }
+            ```
+            - app.spec.ts: codice per il test automatico dell'applicazione
+
         
 
 # Lezione 15/10/2025
