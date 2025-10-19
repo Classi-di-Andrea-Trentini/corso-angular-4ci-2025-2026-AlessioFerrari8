@@ -1,9 +1,10 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=20964327)
 
-# lezione 08/10/2025
+# Lezione 08/10/2025
 
 Web app -> esempio l'app del registro https://www.vivoscuola.it/Accedi-a
-Perché si perferiscono web app?
+
+### Perché si perferiscono web app?
 - ADATTABILITÀ -> si può usare su qualunque dispositivo
 - SERVIZI CLOUD
 - TECNOLOGIA RESPONSIVE
@@ -18,6 +19,33 @@ npm -> node package manager (gestore di pacchetti)
 [Angular](https://angular.dev/) -> framework basato su node.js 
 <br>
 [React](https://reactjs.org/) -> libreria basata su node.js 
+
+## Docker
+Docker è una piattaforma di container, che permette di creare, distribuire e eseguire applicazioni in ambienti isolati (container).
+
+I container condividono il kernel del sistema host, ma eseguono processi isolati con le proprie dipendenze.
+
+| **Virtual Machine (VM)** | **Docker Container** |
+|--------------------------|----------------------|
+| Emula un intero sistema operativo (OS completo) | Condivide l'OS host (solo binari/librerie necessarie) |
+| **Hypervisor** necessario per astrazione hardware | **Docker Engine** gestisce i container direttamente sul SO |
+| **Avvio lento** (minuti) | **Avvio istantaneo** (secondi) |
+| **Alto consumo di risorse** (CPU, RAM, storage) | **Risorse ottimizzate** (leggero) |
+| **Isolamento completo** | **Isolamento a livello di processo** |
+| **Ideale per carichi di lavoro eterogenei** | **Perfetto per microservizi e app moderne** |
+
+## Vantaggi di Docker 
+
+### Portabilità
+- Il container funziona identico su qualsiasi macchina (Linux, Windows, macOS)
+
+### Omogeneità
+- Elimina il problema "sul mio computer funziona"
+
+## Esempio pratico
+
+Usiamo Docker per eseguire un server **Nginx** che ospita l'app Angular buildata.
+
 
 # Lezione 13/10/2025
 **Open source** -> software con codice sorgente aperto
@@ -113,6 +141,9 @@ Dopo averla buildata, copiamo il contenuto della cartella `dist/browser` nella c
 ```bash
 docker run --name webserver -p 6000:80 -v /workspaces/corso-angular-4ci-2025-2026-AlessioFerrari8/app/:/usr/share/nginx/html nginx
 ```
+
+Il -p serve per la porta --> 6000:80 tra host e container
+Il -v serve per montare la directory iniziale (/workspaces/...) su quella dell'host
 
 Sennò si può usare un server con il comando
 
