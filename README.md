@@ -126,17 +126,31 @@ ng new nome-applicazione
             }
             ```
             - app.spec.ts: codice per il test automatico dell'applicazione
+- .editorconfig: configurazione dell'editor
+
+- .gitignore: contiene l'elenco dei file e delle directory da escludere dai commit
+
+- angular.json: configurazione dell'applicazione globale
+
+- package.json, package-lock.json: npm install, grazie a questi due file, riesce a ricreare la directory node_modules da zero
+
+- tsconfig.*: configurazione di Typescript
+
 
         
 
 # Lezione 15/10/2025
-Build di un applicazione
+### Build e deploy di un applicazione
+
+Per eseguire il build dell'applicazione ed ottenere il file da pubblicare con un server web statico (le applicazioni non SSR non richiedono per il loro funzionamento un server node) eseguire il comando:
+
 ```bash
 cd nome-applicazione
 ng build
 ```
 
-Dopo averla buildata, copiamo il contenuto della cartella `dist/browser` nella cartella `app` che creiamo nel progetto e poi lanciamo con docker
+Verrà creata la directory dist/nome-applicazione/browser che conterrà i file dell'applicazione (index.html, style.css, main.js...). Per effettuare una prova con nginx e docker, dopo aver copiato i file in una directory (es app):
+
 
 ```bash
 docker run --name webserver -p 6000:80 -v /workspaces/corso-angular-4ci-2025-2026-AlessioFerrari8/app/:/usr/share/nginx/html nginx
@@ -145,7 +159,7 @@ docker run --name webserver -p 6000:80 -v /workspaces/corso-angular-4ci-2025-202
 Il -p serve per la porta --> 6000:80 tra host e container
 Il -v serve per montare la directory iniziale (/workspaces/...) su quella dell'host
 
-Sennò si può usare un server con il comando
+Angular ci mette a disposizione un server web di sviluppo che avverte i cambiamenti apportati ai file html, css e typescript ed esegue in automatico il build dell'applicazione e pubblica sul web l'app aggiornata. Per avviare il server di sviluppo:
 
 ```bash
     ng serve
