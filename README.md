@@ -164,3 +164,67 @@ Angular ci mette a disposizione un server web di sviluppo che avverte i cambiame
 ```bash
     ng serve
 ```
+
+# Lezione 22/10/2025
+
+Zoneless -> quando abbiamo fatto build c'era un file zone.js 
+Si "risolve" il problema con i signal in angular.
+
+## Basi frontend
+- RESPONSIVE -> deve funzionare su tutti i dispositivi (smartphone, tablet, pc)
+- MOBILE FIRST -> progettare prima per dispositivi mobili e poi per desktop (l'80% dei siti oggi viene visitato da smartphone)
+
+## Bootstrap
+Useremo [bootstrap](https://getbootstrap.com/) -> framework CSS per realizzare siti web responsive e mobile-first in modo semplice e veloce.
+
+Per installare bootstrap:
+
+```bash
+cd corso-angular
+npm install bootstrap
+```
+
+> ATTENZIONE: rendere con cd... la directory del progetto directory corrente
+Configuriamo angular.json per includere bootstrap:
+
+```json
+"styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "src/styles.css"
+],
+"scripts": [
+    "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+]
+```
+In questo modo bootstrap verrà incluso in tutte le pagine dell'applicazione, sia nel CSS che nel JS.
+
+## Esempio di utilizzo di bootstrap
+
+```html
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>       
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+```
+
+## Componente
+Creiamo un nuovo componente chiamato "binding" :
+
+```bash
+ng generate component bindings
+```
