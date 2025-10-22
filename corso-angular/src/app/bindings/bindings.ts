@@ -12,6 +12,6 @@ export class Bindings {
 
   cambiaNome(): void {
     // Corpo del metodo
-    this.studente.set("Federico Esposito")
+    this.studente.set("Federico Esposito");
   }
 }
