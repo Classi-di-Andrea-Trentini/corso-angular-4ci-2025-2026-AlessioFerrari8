@@ -1,4 +1,30 @@
 <h1 class="display-3">
     Bindings
 </h1>
+<h3> 
+    String interpolation
+</h3>
+<p>Con la string interpolation visualizzo nel template html un valore memorizzato in una "variabile" typescript.
+<b>Possono essere usate solo variabili che sono attributi della classe Component.</b></p>
+<p>In un applicazione zoneless per garantire che la vista venga aggiornata, devo usare i signals.</p>
+<p>Cos'è un signals?</p>
+<p>Un signal è una funzione wrapper che gestisce un valore di qualsiasi tipo: numeri, stringhe, array, oggetti, ...</p>
+<p>È la signal che controlla se un valore viene modificato e in tal caso marca la zona con quel valore come dirty, 
+    e quindi richiede il refresh del template html.
+</p>
+<div>Quali sono gli step da seguire?
+    <ol>
+        <li>
+            Dichiarare la signal in typescript
+        </li>
+        <li>
+            Inserire una chiamata alla funzione signal fra doppi eparentesi graffe
+        </li>
+    </ol>
+</div>
 
+<p>
+    Studente: {{studente()}}
+</p>
+<h3>Event binding</h3>
+<p><button (click)="cambiaNome()">Cambia nome</button></p>
