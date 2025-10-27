@@ -27,4 +27,26 @@
     Studente: {{studente()}}
 </p>
 <h3>Event binding</h3>
-<p><button (click)="cambiaNome()">Cambia nome</button></p>
+<p><button class="btn btn-primary" (click)="cambiaNome()">Cambia nome</button></p>
+<p>Per utilizzare event binding, si toglie on dal nome dell'evento e si racchiude far partentesi 
+    tonde il nome rimanente. Il valore dell'evento deve essere il nome 
+    di un metodo della classe del compoinente.<br>
+    <b>ATTENZIONE: ricordarsi le parentesi tonde dopo il nome del metodo!!!</b>
+</p>
+<div class="row">
+    <div class="col-sm-6">
+        <p>
+            Contatore: {{contatore()}}
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <p>
+            <button class="btn btn-success" (click)="incrementa()">Aumenta valore</button>
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <p>
+            <button class="btn btn-danger" (click)="decrementa()">Diminuisci valore</button>
+        </p>
+    </div>
+</div>

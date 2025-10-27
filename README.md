@@ -116,13 +116,13 @@ ng new nome-applicazione
             import { RouterOutlet } from '@angular/router';
 
             @Component({
-            selector: 'app-root',
-            imports: [RouterOutlet],
-            templateUrl: './app.html', // questo componente usa app.html per lo stile
-            styleUrl: './app.css' // questo componente usa app.css per lo stile
+                selector: 'app-root',
+                imports: [RouterOutlet],
+                templateUrl: './app.html', // questo componente usa app.html per lo stile
+                styleUrl: './app.css' // questo componente usa app.css per lo stile
             })
             export class App {
-            protected readonly title = signal('hello-world');
+                protected readonly title = signal('hello-world');
             }
             ```
             - app.spec.ts: codice per il test automatico dell'applicazione
@@ -227,4 +227,57 @@ Creiamo un nuovo componente chiamato "binding" :
 
 ```bash
 ng generate component bindings
+```
+
+# Lezione 27/10/2025
+
+Vogliamo rendere il NavBar un componente riutilizzabile in tutta l'applicazione.
+```bash
+ng generate component nav-bar
+```
+Aggiungiamo in app.ts il componente NavBar
+```typescript
+import { NavBar } from './nav-bar/nav-bar';
+...
+@Component({
+  selector: 'app-root',
+    imports: [RouterOutlet, Bindings, NavBar],
+    templateUrl: './app.html',
+    styleUrl: './app.css'
+})
+```
+Generiamo anche un componente header e footer per l'applicazione
+```bash
+ng generate component header
+ng generate component footer
+```
+Aggiungiamo in app.ts i componenti Header e Footer
+```typescript
+import { Header } from './header/header';
+import { Footer } from './footer/footer';
+...
+@Component({
+  selector: 'app-root',
+    imports: [RouterOutlet, Bindings, NavBar, Header, Footer],
+    templateUrl: './app.html',
+    styleUrl: './app.css'
+})
+```
+
+### String interpolation
+Con la string interpolation visualizzo nel template html un valore memorizzato in una "variabile" typescript.
+**Possono essere usate solo variabili che sono attributi della classe Component.**
+In un applicazione zoneless per garantire che la vista venga aggiornata, devo usare i signals.
+###### Cos'è un signals?
+Un signal è una funzione wrapper che gestisce un valore di qualsiasi tipo: numeri, stringhe, array, oggetti, ecc.
+È la signal che controlla se un valore viene modificato e in tal caso marca la zona con quel valore come dirty, 
+e quindi richiede il refresh del template html.
+Quali sono gli step da seguire?
+    - Dichiarare la signal in typescript
+    - Inserire una chiamata alla funzione signal fra doppi eparentesi graffe
+
+```html
+Studente: {{studente()}}
+<h3>Event binding</h3>
+<button (click)="cambiaNome()">Cambia nome</button>
 ```
