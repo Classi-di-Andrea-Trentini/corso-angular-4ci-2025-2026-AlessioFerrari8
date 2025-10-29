@@ -281,3 +281,5 @@ Studente: {{studente()}}
 <h3>Event binding</h3>
 <button (click)="cambiaNome()">Cambia nome</button>
 ```
+
+# Lezione 29/10/2025

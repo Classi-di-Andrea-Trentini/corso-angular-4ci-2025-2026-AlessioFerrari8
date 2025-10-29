@@ -50,3 +50,40 @@
         </p>
     </div>
 </div>
+<h3>Property binding</h3>
+<p>
+    Una property corrisponde ad un attributo di un elemento HTML
+    Il tag img prevede un attributo obbligatorio -> src = "nome_immagine"
+    src dal punto di vista angular è una property
+</p>
+<div>
+    <p>Inserimento di un immagine in modo statico</p>
+    <img class="img-fluid img-thumbnail" src="/auto.jpg">
+    <p>Inserimento di un immagine in modo dinamico, con property binding</p>
+    <img class="img-fluid img-thumbnail" [src]="immagini[indiceImmagine()]">
+</div>
+<div class="row mt-5">
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" [disabled]="indiceImmagine() == 0" (click)="precedente()">Precedente</button>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <img class="img-fluid img-thumbnail" [src]="immagini[indiceImmagine()]" alt="">
+        </div>
+    </div>
+        <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" [disabled]="indiceImmagine() == immagini.length - 1" (click)="successivo()">Successivo</button>
+        </div>
+    </div>
+</div>
+
+<h3>Style binding</h3>
+<p>Come assegnare uno stile css ad un elemento HTML dinamico</p>
+
+
+<p style="color: blueviolet;">Questo testo è viola</p>
+<p [style.color]="colore()">Questo testo cambia di colore in modo casuale</p>
+
