@@ -19,7 +19,6 @@ export class Bindings implements OnInit{
   colori: string[] = ['red', 'green', 'yellow', 'blue'];
   colore: WritableSignal<string> = signal(this.colori[0]);
 
-  cronometro!: Observable<any> ;
 
   cambiaNome(): void {
     // Corpo del metodo
@@ -52,7 +51,7 @@ export class Bindings implements OnInit{
   }
 
   ngOnInit(): void {
-    this.cronometro = interval(1000).subscribe(() => {
+    interval(1000).subscribe(() => {
       this.cambiaColore();
     });
   }
