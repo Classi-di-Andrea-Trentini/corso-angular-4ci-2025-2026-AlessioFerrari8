@@ -274,7 +274,11 @@ Un signal è una funzione wrapper che gestisce un valore di qualsiasi tipo: nume
 e quindi richiede il refresh del template html.
 Quali sono gli step da seguire?
     - Dichiarare la signal in typescript
-    - Inserire una chiamata alla funzione signal fra doppi eparentesi graffe
+    - Inserire una chiamata alla funzione signal fra doppie parentesi graffe
+
+```ts
+studente: WritableSignal<string> = signal("Alessio Ferrari");
+```
 
 ```html
 Studente: {{studente()}}
@@ -283,3 +287,109 @@ Studente: {{studente()}}
 ```
 
 # Lezione 29/10/2025
+
+## Tipi di Data Binding in Angular
+
+In **Angular**, il *data binding* è il meccanismo che collega il **model (i dati)** e la **view (il template HTML)** in modo dinamico.  
+Ci sono **4 principali tipi di binding**, ognuno con una direzione diversa di flusso dei dati.
+
+---
+
+## 🔹 1. Interpolation (Interpolazione)
+**Direzione:** *Dal component → alla view*  
+**Sintassi:** `{{ espressione }}`
+
+Usata per mostrare valori di variabili o risultati di espressioni direttamente nell’HTML.
+
+```html
+<p>Ciao {{ nome }}!</p>
+```
+
+```typescript
+export class AppComponent {
+  nome = 'Mario';
+}
+```
+
+✅ **Risultato in pagina:**
+```
+Ciao Mario!
+```
+
+---
+
+## 🔹 2. Property Binding
+**Direzione:** *Dal component → alla view*  
+**Sintassi:** `[property]="espressione"`
+
+Permette di impostare **proprietà HTML o di componenti** in base ai dati del componente TypeScript.
+
+```html
+<img [src]="immagineUrl" [alt]="descrizione">
+<button [disabled]="isDisabled">Invia</button>
+```
+
+```typescript
+immagineUrl = 'logo.png';
+descrizione = 'Logo dell’app';
+isDisabled = true;
+```
+
+---
+
+## 🔹 3. Event Binding
+**Direzione:** *Dalla view → al component*  
+**Sintassi:** `(evento)="metodo()"`
+
+Usata per ascoltare eventi del DOM o personalizzati e reagire nel component.
+
+```html
+<button (click)="saluta()">Clicca</button>
+```
+
+```typescript
+saluta() {
+  alert('Ciao!');
+}
+```
+
+---
+
+## 🔹 4. Style Binding
+**Direzione:** *Dal component → alla view*  
+**Sintassi:** `[style.prop]="espressione"`  
+
+Permette di cambiare dinamicamente uno stile CSS direttamente dall’HTML.
+
+```html
+<p [style.color]="coloreTesto" [style.fontSize.px]="dimensioneTesto">
+  Testo dinamico!
+</p>
+
+<button (click)="cambiaStile()">Cambia stile</button>
+```
+
+```typescript
+export class AppComponent {
+  coloreTesto = 'blue';
+  dimensioneTesto = 16;
+
+  cambiaStile() {
+    this.coloreTesto = this.coloreTesto === 'blue' ? 'red' : 'blue';
+    this.dimensioneTesto = this.dimensioneTesto === 16 ? 24 : 16;
+  }
+}
+```
+
+✳️ Quando l’utente clicca il pulsante, il colore e la dimensione del testo cambiano dinamicamente.
+
+---
+
+## 🧩 Riepilogo
+
+| Tipo di Binding | Direzione | Sintassi | Esempio |
+|-----------------|-----------|----------|---------|
+| **Interpolation** | Component → View | `{{ ... }}` | `<p>{{ nome }}</p>` |
+| **Property Binding** | Component → View | `[prop]="..."` | `<img [src]="url">` |
+| **Event Binding** | View → Component | `(event)="..."` | `<button (click)="onClick()">` |
+| **Style Binding** | Component → View | `[style.prop]="..."` | `<p [style.color]="colore"></p>` |
