@@ -383,13 +383,43 @@ export class AppComponent {
 
 ✳️ Quando l’utente clicca il pulsante, il colore e la dimensione del testo cambiano dinamicamente.
 
+## 🔹 5. Class Binding
+
+**Direzione:** *Dal component → alla view*
+**Sintassi:** `[class.nomeClasse]="condizione"`
+
+Permette di aggiungere o rimuovere dinamicamente classi CSS in base a condizioni definite nel component.
+
+```html
+<p [class.evidenziato]="isEvidenziato">
+  Testo evidenziato dinamicamente!
+</p>
+
+<button (click)="toggleEvidenziato()">Cambia stato</button>
+```
+
+```typescript
+export class AppComponent {
+  isEvidenziato = false;
+
+  toggleEvidenziato() {
+    this.isEvidenziato = !this.isEvidenziato;
+  }
+}
+```
+
+✅ Quando `isEvidenziato` è `true`, il paragrafo assume la classe `evidenziato`.
+
 ---
 
 ## 🧩 Riepilogo
 
-| Tipo di Binding | Direzione | Sintassi | Esempio |
-|-----------------|-----------|----------|---------|
-| **Interpolation** | Component → View | `{{ ... }}` | `<p>{{ nome }}</p>` |
-| **Property Binding** | Component → View | `[prop]="..."` | `<img [src]="url">` |
-| **Event Binding** | View → Component | `(event)="..."` | `<button (click)="onClick()">` |
-| **Style Binding** | Component → View | `[style.prop]="..."` | `<p [style.color]="colore"></p>` |
+| Tipo di Binding      | Direzione        | Sintassi                          | Esempio                                       |
+| -------------------- | ---------------- | --------------------------------- | --------------------------------------------- |
+| **Interpolation**    | Component → View | `{{ ... }}`                       | `<p>{{ nome }}</p>`                           |
+| **Property Binding** | Component → View | `[prop]="..."`                    | `<img [src]="url">`                           |
+| **Event Binding**    | View → Component | `(event)="..."`                   | `<button (click)="onClick()">`                |
+| **Style Binding**    | Component → View | `[style.prop]="..."`              | `<p [style.color]="colore"></p>`              |
+| **Class Binding**    | Component → View | `[class.nomeClasse]="condizione"` | `<p [class.evidenziato]="isEvidenziato"></p>` |
+
+# Lezione 03/11/2025
