@@ -17,3 +17,60 @@
 @if (visualizza()) {
     <p>Questo è un paragrafo che appare e scompare</p>
 }
+<p><b>Esempio 2</b></p>
+<p>
+    Con questo esempio decidiamo se visualizzare un'immagine oppure una scritta in base alla scelta fatta dall'utente ad esempio con button.
+</p>
+<div class="row">
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="vaiAImmagine()">Immagine</button>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="vaiATesto()">Testo</button>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <!-- Visualizzo l'immagine o il testo a seconda del valore del signal: immaigneOTesto  -->
+             @if (immagineOTesto() == 'immagine') {
+                <img src="aereo.jpg" class="img-fluid img-thumbnail">
+             }
+             @else {
+                <p class="lead">Questo testo è visualizzato in alternativa all'immagine</p>
+             }
+        </div>
+    </div>
+</div>
+
+
+<p><b>Esempio 3</b></p>
+<h2 class="display-4">La direttiva for</h2>
+<p>
+    For consente di iterare su un array, aggiungendo tanti blocchi html quanti sono gli elementi dell'array.
+</p>
+<p>Visualizzo un elenco puntato con i nomi presenti nell'array gestito dal signal chiamato nomi</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div>
+            <div class="mb-3">
+                <label for="inName" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="inName" placeholder="Aggiungi un nome..." #inNome>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <button class="btn btn-primary" (click)="aggiungiNome(inNome)">Aggiugi</button>
+        </div>
+    </div>
+</div>
+<div>
+    <ul>
+        @for(nome of nomi(); track nome) {
+            <li>{{nome}}</li>
+        }
+    </ul>
+</div>
