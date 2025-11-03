@@ -1,0 +1,19 @@
+<h1 class="display-3">
+    Direttive strutturali
+</h1>
+<p>Le direttive strutturali ci consentono di modificare in modo dinamico il DOM (struttura) della pagina, ovvero aggiungere o rimuovere tag in modo dinamico</p>
+
+
+<h2 class="display-4">La direttiva if</h2>
+<p>if ci consente di visualizzare o meno oppure scegliere fra due blocchi HTML al verificarsi di una condizione.</p>
+
+<p><b>Esempio 1</b></p>
+<p>
+    Il paragrafo in basso viene aggiunto al DOM se il valore del signal è true, altrimenti non viene aggiunto nulla.
+</p>
+<div>
+    <button class="btn btn-primary" (click)="toggleVisualizza()">Visualizza/Nascondi</button>
+</div>
+@if (visualizza()) {
+    <p>Questo è un paragrafo che appare e scompare</p>
+}
