@@ -31,7 +31,6 @@ export class StructuralDirectives {
 
   aggiungiNome(nome: any): void {
     console.log(nome.value);
-
   }
 
 

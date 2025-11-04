@@ -423,3 +423,84 @@ export class AppComponent {
 | **Class Binding**    | Component → View | `[class.nomeClasse]="condizione"` | `<p [class.evidenziato]="isEvidenziato"></p>` |
 
 # Lezione 03/11/2025
+Rivisti i vari tipi di binding in Angular:
+- Interpolation
+- Property Binding
+- Event Binding
+- Style Binding
+- Class Binding
+
+## Direttive strutturali
+Le direttive strutturali permettono di modificare la struttura del DOM, aggiungendo, rimuovendo o manipolando gli elementi HTML in base a condizioni specifiche.
+
+Abbiamo visto due tipi di direttive strutturali:
+- @if
+- @for
+
+### @if
+La direttiva `@If` ci consente di includere o escludere un elemento HTML in base al valore di una condizione booleana.
+```html
+<p>
+    Il paragrafo in basso viene aggiunto al DOM se il valore del signal è true, altrimenti non viene aggiunto nulla.
+</p>
+<div>
+    <button class="btn btn-primary" (click)="toggleVisualizza()">Visualizza/Nascondi</button>
+</div>
+@if (visualizza()) {
+    <p>Questo è un paragrafo che appare e scompare</p>
+}
+```
+```typescript
+export class Bindings {
+    protected visualizza: WritableSignal<boolean> = signal(false);
+
+    protected toggleVisualizza(): void {
+        this.visualizza.set(!this.visualizza());
+    }
+}
+
+#### Il ramo else
+Possiamo anche aggiungere un ramo else per specificare cosa visualizzare quando la condizione è falsa.
+```html
+@if (visualizza()) {
+    <p>Questo è un paragrafo che appare e scompare</p>
+} else {
+    <p>Il paragrafo è nascosto</p>
+}
+```
+
+### @for
+La direttiva `@For` ci consente di iterare su una collezione di elementi e generare dinamicamente il contenuto HTML corrispondente.
+```html
+<div class="row">
+    <div class="col-sm-6">
+        <div>
+            <div class="mb-3">
+                <label for="inName" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="inName" placeholder="Aggiungi un nome..." #inNome>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <button class="btn btn-primary" (click)="aggiungiNome(inNome)">Aggiugi</button>
+        </div>
+    </div>
+</div>
+<div>
+    <ul>
+        @for(nome of nomi(); track nome) {
+            <li>{{nome}}</li>
+        }
+    </ul>
+</div>
+```
+```typescript
+export class Bindings {
+  nomi: WritableSignal<string[]> = signal(['Andrea', 'Gianni', 'Federico', 'Luca']);
+    
+  aggiungiNome(nome: any): void {
+    console.log(nome.value);
+  }
+}
+```
