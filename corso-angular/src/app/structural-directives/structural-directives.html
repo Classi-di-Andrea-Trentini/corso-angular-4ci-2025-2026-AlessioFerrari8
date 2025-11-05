@@ -53,25 +53,38 @@
 </p>
 <p>Visualizzo un elenco puntato con i nomi presenti nell'array gestito dal signal chiamato nomi</p>
 <div class="row">
-    <div class="col-sm-6">
-        <div>
-            <div class="mb-3">
-                <label for="inName" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="inName" placeholder="Aggiungi un nome..." #inName>
-            </div>
-        </div>
+  <div class="col-sm-6">
+    <div>
+      <div class="mb-3">
+        <label for="inName" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="inName" placeholder="Aggiungi un nome..." #inName>
+      </div>
     </div>
-    <div class="col-sm-6">
-        <div>
-            <button class="btn btn-primary" (click)="aggiungiNome(inName)">Aggiugi</button>
-            
-        </div>
+  </div>
+  <div class="col-sm-6">
+    <div>
+      <button class="btn btn-primary" (click)="aggiungiNome(inName)">Aggiugi</button>
     </div>
+  </div>
 </div>
-<div>
-    <ul>
-        @for(nome of nomi(); track nome) {
-            <li>{{nome}}</li>
-        }
-    </ul>
+<div class="mt-5 mb-5">
+  @for(nome of nomi(); track nome) {
+    @if(indiceModifica() === $index) {
+      <!-- in questo caso visualizza il blocco per la modifica -->
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item flex-fill">
+          <input class="form-control" type="text" [value]="nome" #inNuovoNome>
+        </li>
+        <li class="list-group-item"><button class="btn btn-primary" (click)="elimina($index)">Salva</button></li>
+        <li class="list-group-item"><button class="btn btn-secondary" (click)="modifica($index)">Annulla</button></li>
+      </ul>
+    }
+    @else {
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item flex-fill">{{nome}}</li>
+        <li class="list-group-item"><button class="btn btn-danger" (click)="elimina($index)">Elimina</button></li>
+        <li class="list-group-item"><button class="btn btn-success" (click)="modifica($index)">Modifica</button></li>
+      </ul>
+    }
+  }
 </div>
