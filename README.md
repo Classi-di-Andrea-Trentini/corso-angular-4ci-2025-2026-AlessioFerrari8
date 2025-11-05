@@ -434,7 +434,7 @@ Rivisti i vari tipi di binding in Angular:
 Le direttive strutturali permettono di modificare la struttura del DOM, aggiungendo, rimuovendo o manipolando gli elementi HTML in base a condizioni specifiche.
 
 Abbiamo visto due tipi di direttive strutturali:
-- @if
+- @if  (con il ramo else)
 - @for
 
 ### @if
@@ -458,9 +458,10 @@ export class Bindings {
         this.visualizza.set(!this.visualizza());
     }
 }
-
+```
 #### Il ramo else
 Possiamo anche aggiungere un ramo else per specificare cosa visualizzare quando la condizione è falsa.
+
 ```html
 @if (visualizza()) {
     <p>Questo è un paragrafo che appare e scompare</p>
@@ -504,3 +505,7 @@ export class Bindings {
   }
 }
 ```
+
+# Lezione 05/11/2025
+Viste iterazioni su array
+E cose varie su bottoni, e metodi vari
