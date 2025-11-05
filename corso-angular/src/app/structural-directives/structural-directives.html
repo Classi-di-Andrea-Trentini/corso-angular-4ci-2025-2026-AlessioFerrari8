@@ -75,8 +75,8 @@
         <li class="list-group-item flex-fill">
           <input class="form-control" type="text" [value]="nome" #inNuovoNome>
         </li>
-        <li class="list-group-item"><button class="btn btn-primary" (click)="elimina($index)">Salva</button></li>
-        <li class="list-group-item"><button class="btn btn-secondary" (click)="modifica($index)">Annulla</button></li>
+        <li class="list-group-item"><button class="btn btn-primary" (click)="salva(inNuovoNome.value, $index)">Salva</button></li>
+        <li class="list-group-item"><button class="btn btn-secondary" (click)="annulla()">Annulla</button></li>
       </ul>
     }
     @else {

@@ -32,7 +32,6 @@ export class StructuralDirectives {
 
   aggiungiNome(nome: any): void {
     this.nomi.update(current => [...current, nome.value]); // metto gli elementi prima con ... e aggiungo
-
   }
 
   elimina(indice: number) : void {
@@ -44,6 +43,18 @@ export class StructuralDirectives {
 
   modifica(indice: number): void {
     this.indiceModifica.set(indice);
+  }
+
+  annulla(): void {
+    this.indiceModifica.set(-1); // resettiamo indice
+  }
+
+  salva(nome: string, indice: number): void {
+    this.nomi.update(current => {
+      current[indice] = nome;
+      return current;
+    })
+    this.indiceModifica.set(-1);
   }
 
 
