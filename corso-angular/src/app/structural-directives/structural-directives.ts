@@ -30,7 +30,7 @@ export class StructuralDirectives {
   }
 
   aggiungiNome(nome: any): void {
-    console.log(nome.value);
+    this.nomi.update(current => [...current, nome.value]); // metto gli elementi prima con ... e aggiungo
   }
 
 
