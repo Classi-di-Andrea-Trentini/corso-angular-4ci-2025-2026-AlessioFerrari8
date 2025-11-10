@@ -509,3 +509,20 @@ export class Bindings {
 # Lezione 05/11/2025
 Viste iterazioni su array
 E cose varie su bottoni, e metodi vari
+
+# Lezione 10/11/2025
+Ultima direttiva strutturale: @switch
+Lo switch è una sorta di catena di if else, che però prende un caso, in base al valore, esegue un azione.
+```html
+@switch (valoreDaControllare()) {
+    @case ('caso1') {
+        <p>Questo è il caso 1</p>
+    }
+    @case ('caso2') {
+        <p>Questo è il caso 2</p>
+    }
+    @default {
+        <p>Questo è il caso di default</p>
+    }
+}
+```

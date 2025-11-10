@@ -88,3 +88,40 @@
     }
   }
 </div>
+
+<div>
+  <h2 class="display-4">La direttiva switch</h2>
+  <p>Switch ci consente di inserire blocchi diversi in bsae al valore di una variabile
+    Come if, ma possono esserci diverse alternative
+  </p>
+</div>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="impostaStudente()">Studente</button>
+    <button class="btn btn-primary" (click)="impostaDocente()">Docente</button>
+    <button class="btn btn-primary" (click)="impostaGenitore()">Genitore</button>
+    <button class="btn btn-primary" (click)="impostaAltro()">Altro</button>
+  </div>
+</div>
+@switch (tipoUtente()) {
+  @case ('studente') {
+    <div>
+      <h1 class="display-3">Studente</h1>
+    </div>
+  }
+  @case ('docente') {
+    <div>
+      <h1 class="display-3">Docente</h1>
+    </div>
+  }
+  @case ('genitore') {
+    <div>
+      <h1 class="display-3">Genitore</h1>
+    </div>
+  }
+  @default {
+    <div>
+      <h1 class="display-3">Altro</h1>
+    </div>
+  }
+}

@@ -17,6 +17,9 @@ export class StructuralDirectives {
   // esempio 3
   nomi: WritableSignal<string[]> = signal(['Andrea', 'Gianni', 'Federico', 'Luca']);
   indiceModifica: WritableSignal<number> = signal(-1);
+  // signal per esempio su switch.
+  // Possibili valori di tipo utente saranno: studente, docente, genitore
+  tipoUtente: WritableSignal<string> = signal('studente');
 
   toggleVisualizza(): void {
     this.visualizza.update(valoreCurrent => !valoreCurrent); // espressione lambda
@@ -57,5 +60,20 @@ export class StructuralDirectives {
     this.indiceModifica.set(-1);
   }
 
+  impostaStudente(): void {
+    this.tipoUtente.set('studente');
+  }
+
+  impostaDocente(): void {
+    this.tipoUtente.set('docente');
+  }
+
+  impostaGenitore(): void {
+    this.tipoUtente.set('genitore');
+  }
+
+  impostaAltro(): void {
+    this.tipoUtente.set('altro');
+  }
 
 }
