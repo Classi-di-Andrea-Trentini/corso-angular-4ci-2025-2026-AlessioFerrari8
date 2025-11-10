@@ -526,3 +526,40 @@ Lo switch è una sorta di catena di if else, che però prende un caso, in base a
     }
 }
 ```
+
+
+OOP -> utilizzo di classi
+Creiamo un componente "classi"
+```bash
+ng generate component classi-interfacce
+```
+
+Creiamo una classe studente
+```bash
+ng generate class classi-interfacce/studente
+```
+
+Attributi
+```typescript
+private _nome: string;
+private _cognome: string;
+```
+Costruttore
+```typescript
+constructor(nome: string, cognome: string) {
+    this._nome = nome;
+    this._cognome = cognome;
+}
+```
+Getters e Setters
+```typescript
+public get nome(): string {
+    return this._nome;
+}
+public set nome(value: string) {
+    this._nome = value;
+}
+```
+
+
+
