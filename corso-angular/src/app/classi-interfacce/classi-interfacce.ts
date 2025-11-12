@@ -16,6 +16,7 @@ export class ClassiInterfacce {
     try {
       this.classe.set(new ClasseScolastica(nomeClasse, annoScolastico))
     } catch (error) {
+      console.log(error);
 
     }
   }

@@ -4,11 +4,11 @@ import { Bindings } from './bindings/bindings';
 import { NavBar } from './nav-bar/nav-bar';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
-import { StructuralDirectives } from './structural-directives/structural-directives';
+import { ClassiInterfacce } from './classi-interfacce/classi-interfacce';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Bindings, NavBar, Header, Footer, StructuralDirectives],
+  imports: [RouterOutlet, Bindings, NavBar, Header, Footer, ClassiInterfacce],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
