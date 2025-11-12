@@ -1,14 +1,14 @@
 export class Persona {
   // Attributi della classe
   private _id: number; // inizializzo o a 0, o metto subito nel costruttore
-  private _nome: string;
-  private _cognome: string;
+  private _nome: string = '';
+  private _cognome: string = '';
   private _sesso: string;
 
   constructor(id: number, nome: string, cognome: string, sesso: string) {
     this._id = id;
-    this._nome = nome;
-    this._cognome = cognome;
+    this.nome = nome;
+    this.cognome = cognome;
     this._sesso = sesso;
   }
 
@@ -36,11 +36,19 @@ export class Persona {
   // setter
 
   public set nome(value: string) {
-    this._nome = value;
+    if (value.length > 0) {
+      this._nome = value;
+    } else {
+      throw new Error('Il nome è obbligatorio');
+    }
   }
 
   public set cognome(value: string) {
-    this._cognome = value;
+    if (value.length > 0) { // controllo che sia > 0
+      this._cognome = value;
+    } else {
+      throw new Error('Il nome è obbligatorio');
+    }
   }
 
   public set sesso(value: string) {
