@@ -57,9 +57,26 @@ export class ClasseScolastica {
   }
 
   public modificaStudente(index: number, nuovo: Studente): void {
-    nuovo.classe = this.nomeClasse; 
+    nuovo.classe = this.nomeClasse;
     this._studenti[index] = nuovo;
   }
 
+  public toTable(): string {
+    let tmp = `<table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cognome</th>
+                    <th scope="col">Sesso</th>
+                    <th scope="col">Classe</th>
+                  </tr>
+                </thead>
+                <tbody>` + this._studenti.map(studente => studente.toTable()).toString() + `
+                </tbody>
+              </table>`;
+
+    return tmp;
+  }
 
 }

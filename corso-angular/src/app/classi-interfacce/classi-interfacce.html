@@ -1,1 +1,24 @@
-<p>classi-interfacce works!</p>
+<h1 class="display-4">
+  Classi e interfacce
+</h1>
+<p><u>Esempio 1</u></p>
+<div>
+  <div class="row">
+    <div class="col-sm-5">
+      <div>
+        <input type="text" class="form-control" #inNomeClasse>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div>
+        <input type="text" class="form-control" #inAnnoScolastico>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div>
+        <button class="btn btn-primary" (click)="creaClasse(inNomeClasse.value, inAnnoScolastico.value)">Crea classe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
