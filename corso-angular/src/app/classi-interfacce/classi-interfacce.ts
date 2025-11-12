@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './classi-interfacce.css'
 })
 export class ClassiInterfacce {
-
 }
