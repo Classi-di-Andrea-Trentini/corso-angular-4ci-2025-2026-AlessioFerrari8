@@ -562,4 +562,39 @@ public set nome(value: string) {
 ```
 
 
+# Lezione 12/11/2025
+Viste regex per risolvere il problema del metodo 
+```typescript
+  public cambiaClasse(value: string) {
+    // controllo se il nome della classe è corretto
+    // ovvero deve esserci un numero, sezione e indirizzo
+    // suggerimento: regex
+
+    // regex
+    const regex = /^[1-5][A-S][iame]?$/;
+
+    /*
+    /^ e $/ inizio e fine
+    all'interno si mettono le regole
+    1. numero nell'intervallo da 1 a 5
+    2. possibili valori (lettere da A a S)
+    3. specifichiamo le lettere possibili
+    ? -> la condizione 3 può esserci o no
+    */
+
+    if (regex.test(value)) { // test da vero o falso
+      this._classe = value;
+    } else {
+      throw new Error('Nome della classe errato');
+    }
+
+
+  }
+```
+
+
+.filter
+.map
+.reduce 
+
 
