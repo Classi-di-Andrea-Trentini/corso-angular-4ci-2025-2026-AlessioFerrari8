@@ -60,4 +60,10 @@ export class Persona {
     return this._id + ' ' + this._nome + ' ' + this._cognome;
   }
 
+  public toTable(): string {
+    return '<tr><td scope="row">' + this.id + '</td><td>' + this.nome + '</td><td>' + this.cognome + '</td><td>' + this.sesso + '</td></tr>';
+  }
+
+  
+
 }

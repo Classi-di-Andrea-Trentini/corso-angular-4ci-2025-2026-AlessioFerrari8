@@ -38,4 +38,8 @@ export class Studente extends Persona{
 
   }
 
+  public override toTable(): string {
+    return '<tr><td scope="row">' + this.id + '</td><td>' + this.nome + '</td><td>' + this.cognome + '</td><td>' + this.sesso + '</td><td>' + this.classe + '</td></tr>';
+  }
+
 }
