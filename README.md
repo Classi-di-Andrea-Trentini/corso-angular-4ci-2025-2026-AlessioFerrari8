@@ -592,9 +592,27 @@ Viste regex per risolvere il problema del metodo
   }
 ```
 
+Viste le 3 funzioni più importanti per gli array in js
+.filter -> Permette di filtrare un array, restituendo solo gli elementi che rispettano una condizione.
+```js
+const numeri = [5, 12, 8, 20];
+const maggioriDi10 = numeri.filter(n => n > 10);
 
-.filter
-.map
-.reduce 
+console.log(maggioriDi10); // [12, 20]
+```
+.map -> Trasforma ogni elemento dell’array e restituisce un nuovo array della stessa lunghezza.
+```js
+const numeri = [1, 2, 3];
+const raddoppiati = numeri.map(n => n * 2);
 
+console.log(raddoppiati); // [2, 4, 6]
+```
+.reduce -> “Riduce” l’array a un singolo valore (numero, stringa, oggetto…), applicando una funzione che accumula i risultati.
+```js
+const numeri = [1, 2, 3, 4];
+const somma = numeri.reduce((acc, n) => acc + n, 0);
 
+console.log(somma); // 10
+```
+
+# Lezione 17/11/2025
