@@ -1,0 +1,127 @@
+<h1 class="display-3">
+    Direttive strutturali
+</h1>
+<p>Le direttive strutturali ci consentono di modificare in modo dinamico il DOM (struttura) della pagina, ovvero aggiungere o rimuovere tag in modo dinamico</p>
+
+
+<h2 class="display-4">La direttiva if</h2>
+<p>if ci consente di visualizzare o meno oppure scegliere fra due blocchi HTML al verificarsi di una condizione.</p>
+
+<p><b>Esempio 1</b></p>
+<p>
+    Il paragrafo in basso viene aggiunto al DOM se il valore del signal è true, altrimenti non viene aggiunto nulla.
+</p>
+<div>
+    <button class="btn btn-primary" (click)="toggleVisualizza()">Visualizza/Nascondi</button>
+</div>
+@if (visualizza()) {
+    <p>Questo è un paragrafo che appare e scompare</p>
+}
+<p><b>Esempio 2</b></p>
+<p>
+    Con questo esempio decidiamo se visualizzare un'immagine oppure una scritta in base alla scelta fatta dall'utente ad esempio con button.
+</p>
+<div class="row">
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="vaiAImmagine()">Immagine</button>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" (click)="vaiATesto()">Testo</button>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <!-- Visualizzo l'immagine o il testo a seconda del valore del signal: immaigneOTesto  -->
+             @if (immagineOTesto() == 'immagine') {
+                <img src="aereo.jpg" class="img-fluid img-thumbnail">
+             }
+             @else {
+                <p class="lead">Questo testo è visualizzato in alternativa all'immagine</p>
+             }
+        </div>
+    </div>
+</div>
+
+
+<p><b>Esempio 3</b></p>
+<h2 class="display-4">La direttiva for</h2>
+<p>
+    For consente di iterare su un array, aggiungendo tanti blocchi html quanti sono gli elementi dell'array.
+</p>
+<p>Visualizzo un elenco puntato con i nomi presenti nell'array gestito dal signal chiamato nomi</p>
+<div class="row">
+  <div class="col-sm-6">
+    <div>
+      <div class="mb-3">
+        <label for="inName" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="inName" placeholder="Aggiungi un nome..." #inName>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div>
+      <button class="btn btn-primary" (click)="aggiungiNome(inName)">Aggiugi</button>
+    </div>
+  </div>
+</div>
+<div class="mt-5 mb-5">
+  @for(nome of nomi(); track nome) {
+    @if(indiceModifica() === $index) {
+      <!-- in questo caso visualizza il blocco per la modifica -->
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item flex-fill">
+          <input class="form-control" type="text" [value]="nome" #inNuovoNome>
+        </li>
+        <li class="list-group-item"><button class="btn btn-primary" (click)="salva(inNuovoNome.value, $index)">Salva</button></li>
+        <li class="list-group-item"><button class="btn btn-secondary" (click)="annulla()">Annulla</button></li>
+      </ul>
+    }
+    @else {
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item flex-fill">{{nome}}</li>
+        <li class="list-group-item"><button class="btn btn-danger" (click)="elimina($index)">Elimina</button></li>
+        <li class="list-group-item"><button class="btn btn-success" (click)="modifica($index)">Modifica</button></li>
+      </ul>
+    }
+  }
+</div>
+
+<div>
+  <h2 class="display-4">La direttiva switch</h2>
+  <p>Switch ci consente di inserire blocchi diversi in bsae al valore di una variabile
+    Come if, ma possono esserci diverse alternative
+  </p>
+</div>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary" (click)="impostaStudente()">Studente</button>
+    <button class="btn btn-primary" (click)="impostaDocente()">Docente</button>
+    <button class="btn btn-primary" (click)="impostaGenitore()">Genitore</button>
+    <button class="btn btn-primary" (click)="impostaAltro()">Altro</button>
+  </div>
+</div>
+@switch (tipoUtente()) {
+  @case ('studente') {
+    <div>
+      <h1 class="display-3">Studente</h1>
+    </div>
+  }
+  @case ('docente') {
+    <div>
+      <h1 class="display-3">Docente</h1>
+    </div>
+  }
+  @case ('genitore') {
+    <div>
+      <h1 class="display-3">Genitore</h1>
+    </div>
+  }
+  @default {
+    <div>
+      <h1 class="display-3">Altro</h1>
+    </div>
+  }
+}

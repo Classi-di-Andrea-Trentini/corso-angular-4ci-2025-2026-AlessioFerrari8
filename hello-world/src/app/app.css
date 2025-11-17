@@ -1,0 +1,11 @@
+h1, h2 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    color: red;
+}
+
+h2 {
+    color: blue;
+}
