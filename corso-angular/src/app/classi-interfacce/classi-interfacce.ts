@@ -23,6 +23,7 @@ export class ClassiInterfacce {
 
   aggiungiStudente(nome: string, cognome: string, sesso: string): void {
     this.classe()?.aggiungiStudente(new Studente(this.id, nome, cognome, sesso, this.classe()!.nomeClasse));
+    this.id++;
   }
 
 }
