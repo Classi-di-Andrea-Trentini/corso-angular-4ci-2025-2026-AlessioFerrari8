@@ -648,4 +648,4 @@ nel nostro caso ```classe()```, esiste e NON è undefined o null.
 <p>Anno scolastico: {{classe()?.annoScolastico}}</p>
 ```
 
-
+TODO: completare l'errore in ts
