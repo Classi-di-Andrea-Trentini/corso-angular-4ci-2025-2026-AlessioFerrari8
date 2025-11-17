@@ -8,7 +8,7 @@ import { ClassiInterfacce } from './classi-interfacce/classi-interfacce';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Bindings, NavBar, Header, Footer, ClassiInterfacce],
+  imports: [RouterOutlet, NavBar, Header, Footer, ClassiInterfacce],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

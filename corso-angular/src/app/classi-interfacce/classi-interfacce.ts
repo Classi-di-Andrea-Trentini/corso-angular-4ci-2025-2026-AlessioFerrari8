@@ -1,6 +1,7 @@
 import { ClasseScolastica } from './classe-scolastica';
 import { Component, signal, WritableSignal } from '@angular/core';
 import { Studente } from './studente';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-classi-interfacce',
@@ -12,12 +13,17 @@ export class ClassiInterfacce {
   // se non si vuole assegnare un valore ad una var/signal/attributo/... è sufficiente aggiungere un punto esclamativo dopo il nome della var
   classe: WritableSignal<ClasseScolastica | undefined> = signal(undefined); // o ClasseScolastica o undefined
   id: number = 1;
+  visualizzaErrore: WritableSignal<string> = signal('');
 
   creaClasse(nomeClasse: string, annoScolastico: string) {
     try { // la crea solo se rispetta le regex
       this.classe.set(new ClasseScolastica(nomeClasse, annoScolastico));
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      this.visualizzaErrore.set(error);
+      timer(4000).subscribe(() => {
+        this.visualizzaErrore.set(''); 
+      });
+
     }
   }
 
@@ -25,5 +31,7 @@ export class ClassiInterfacce {
     this.classe()?.aggiungiStudente(new Studente(this.id, nome, cognome, sesso, this.classe()!.nomeClasse));
     this.id++;
   }
+
+
 
 }
