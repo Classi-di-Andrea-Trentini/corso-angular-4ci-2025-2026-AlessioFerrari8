@@ -75,8 +75,8 @@ export class ClasseScolastica {
                   </tr>
                 </thead>
                 <tbody>` +
-                this._studenti.map(studente => studente.toTable()).toString() + ` // array di stringhe -> concateno tutte le stringhe
-                </tbody>
+                this._studenti.map(studente => studente.toTable()).toString() +
+              ` </tbody>
               </table>`;
 
     return tmp;
