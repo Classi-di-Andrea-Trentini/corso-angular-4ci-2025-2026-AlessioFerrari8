@@ -1,3 +1,4 @@
+import { ThisReceiver } from "@angular/compiler";
 import { Studente } from "./studente";
 
 export class ClasseScolastica {
@@ -6,7 +7,8 @@ export class ClasseScolastica {
   _annoScolastico: string = '';
 
   constructor(nomeClasse: string, annoScolastico: string) {
-    this._nomeClasse = nomeClasse; // setter
+    this.nomeClasse = nomeClasse; // setter
+    this.annoScolastico = annoScolastico;
   }
 
   public get nomeClasse() : string {
@@ -72,11 +74,14 @@ export class ClasseScolastica {
                     <th scope="col">Classe</th>
                   </tr>
                 </thead>
-                <tbody>` + this._studenti.map(studente => studente.toTable()).toString() + `
+                <tbody>` +
+                this._studenti.map(studente => studente.toTable()).toString() + ` // array di stringhe -> concateno tutte le stringhe
                 </tbody>
               </table>`;
 
     return tmp;
   }
+
+
 
 }
