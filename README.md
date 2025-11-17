@@ -616,3 +616,36 @@ console.log(somma); // 10
 ```
 
 # Lezione 17/11/2025
+Lavoriamo sulla classe classi-interfacce.ts
+
+Vogliamo creare una classe
+```typescript
+classe!: WritableSignal<ClasseScolastica>;
+```
+
+Al momento della creazione, la classe è vuota, di tipo null
+
+Se nel metodo creaClasse volessimo creare una nuova classe scolastica, dobbiamo fare in modo che la variabile di tipo signal venga aggiornata.
+```typescript
+  creaClasse(nomeClasse: string, annoScolastico: string) {
+    try { // la crea solo se rispetta le regex
+      this.classe.set(new ClasseScolastica(nomeClasse, annoScolastico));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+``` 
+
+Risolviamo usando undefined come valore iniziale della signal
+```typescript
+classe: WritableSignal<ClasseScolastica | undefined> = signal(undefined);
+```
+
+Operatore navigazione sicura: mi consente di andare a controllare prima di inserire un tag verrà controllato se il valore gestito dal signal,
+nel nostro caso ```classe()```, esiste e NON è undefined o null.
+```html
+<p>Nome classe: {{classe()?.nomeClasse}}</p>
+<p>Anno scolastico: {{classe()?.annoScolastico}}</p>
+```
+
+
