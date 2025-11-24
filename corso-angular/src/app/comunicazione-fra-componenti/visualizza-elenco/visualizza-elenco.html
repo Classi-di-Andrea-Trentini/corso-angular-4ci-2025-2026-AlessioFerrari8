@@ -1,0 +1,10 @@
+<div class="row">
+  <ul class="list-group">
+    @for(docente of dati(); track docente.id) {
+      <li class="list-group-item">{{docente.nome}} {{docente.cognome}}</li>
+    }
+    @empty {
+      <li class="list-group-item">Non sono presenti dati</li>
+    }
+  </ul>
+</div>
