@@ -1,0 +1,9 @@
+<h1 class="display-3">
+  Comunicazione fra componenti
+</h1>
+<div class="container">
+  <div>
+    <button class="btn btn-primary" (click)="aggiungiDocente()">Aggiungi Docenti</button>
+  </div>
+  <app-visualizza-elenco [dati]="docenti()"></app-visualizza-elenco>
+</div>
