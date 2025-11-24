@@ -5,10 +5,11 @@ import { NavBar } from './nav-bar/nav-bar';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { ClassiInterfacce } from './classi-interfacce/classi-interfacce';
+import { ComunicazioneFraComponenti } from './comunicazione-fra-componenti/comunicazione-fra-componenti';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar, Header, Footer, ClassiInterfacce],
+  imports: [RouterOutlet, NavBar, Header, Footer, ClassiInterfacce, ComunicazioneFraComponenti],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
