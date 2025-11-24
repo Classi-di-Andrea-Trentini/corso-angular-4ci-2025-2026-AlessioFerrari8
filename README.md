@@ -648,4 +648,13 @@ nel nostro caso ```classe()```, esiste e NON è undefined o null.
 <p>Anno scolastico: {{classe()?.annoScolastico}}</p>
 ```
 
-TODO: completare l'errore in ts
+# Lezione 24/11/2025
+
+ng generate interface classi-interfacce/i-docente
+TODO: visualizzare i dati del docente in html
+
+Usiamo le API di spotify
+
+[Spotify API](https://developer.spotify.com/documentation/web-api/reference/search)
+
+[JSON to TypeScript](https://transform.tools/json-to-typescript)
