@@ -2,6 +2,7 @@ import { ClasseScolastica } from './classe-scolastica';
 import { Component, signal, WritableSignal } from '@angular/core';
 import { Studente } from './studente';
 import { timer } from 'rxjs';
+import { IDocente } from './i-docente';
 
 @Component({
   selector: 'app-classi-interfacce',
@@ -15,13 +16,22 @@ export class ClassiInterfacce {
   id: number = 1;
   visualizzaErrore: WritableSignal<string> = signal('');
 
+  // Esempio di uso di interfacce
+  docente: WritableSignal<IDocente | undefined> = signal({
+    id: 1,
+    nome: 'Andrea',
+    cognome: 'Trentini',
+    classi: ['3Bi', '4Ai', '4Bi', '4Ci'],
+    materie: ['Informatica', 'TPSIT', 'Autonomia']
+  });
+
   creaClasse(nomeClasse: string, annoScolastico: string) {
     try { // la crea solo se rispetta le regex
       this.classe.set(new ClasseScolastica(nomeClasse, annoScolastico));
     } catch (error: any) {
       this.visualizzaErrore.set(error);
       timer(4000).subscribe(() => {
-        this.visualizzaErrore.set(''); 
+        this.visualizzaErrore.set('');
       });
 
     }
