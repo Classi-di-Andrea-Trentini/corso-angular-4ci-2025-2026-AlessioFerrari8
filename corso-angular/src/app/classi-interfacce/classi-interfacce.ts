@@ -25,6 +25,7 @@ export class ClassiInterfacce {
     materie: ['Informatica', 'TPSIT', 'Autonomia']
   });
 
+
   creaClasse(nomeClasse: string, annoScolastico: string) {
     try { // la crea solo se rispetta le regex
       this.classe.set(new ClasseScolastica(nomeClasse, annoScolastico));
