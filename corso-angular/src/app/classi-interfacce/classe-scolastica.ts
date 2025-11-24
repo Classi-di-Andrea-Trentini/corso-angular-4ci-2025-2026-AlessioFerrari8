@@ -75,7 +75,7 @@ export class ClasseScolastica {
                   </tr>
                 </thead>
                 <tbody>` +
-                this._studenti.map(studente => studente.toTable()).toString() +
+                this._studenti.map(studente => studente.toTable()).join('') +
               ` </tbody>
               </table>`;
 
