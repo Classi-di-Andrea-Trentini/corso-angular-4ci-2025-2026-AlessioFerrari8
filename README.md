@@ -658,3 +658,13 @@ Usiamo le API di spotify
 [Spotify API](https://developer.spotify.com/documentation/web-api/reference/search)
 
 [JSON to TypeScript](https://transform.tools/json-to-typescript)
+
+## Comunicazione fra componenti
+Creiamo un nuovo componente
+```bash
+ng generate component comunicazione-fra-componenti
+```
+Si usa la solita tecnica di dividere le cose in componenti più piccoli e riutilizzabili
+
+Caso 1:
+- componente riceve dei dati in input non manda in output nulla, si limita a ricevere
