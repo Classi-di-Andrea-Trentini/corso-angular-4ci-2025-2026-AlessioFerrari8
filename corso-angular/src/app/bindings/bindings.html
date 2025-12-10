@@ -1,0 +1,95 @@
+<h1 class="display-3">
+    Bindings
+</h1>
+<h3> 
+    String interpolation
+</h3>
+<p>Con la string interpolation visualizzo nel template html un valore memorizzato in una "variabile" typescript.
+<b>Possono essere usate solo variabili che sono attributi della classe Component.</b></p>
+<p>In un applicazione zoneless per garantire che la vista venga aggiornata, devo usare i signals.</p>
+<p>Cos'è un signals?</p>
+<p>Un signal è una funzione wrapper che gestisce un valore di qualsiasi tipo: numeri, stringhe, array, oggetti, ...</p>
+<p>È la signal che controlla se un valore viene modificato e in tal caso marca la zona con quel valore come dirty, 
+    e quindi richiede il refresh del template html.
+</p>
+<div>Quali sono gli step da seguire?
+    <ol>
+        <li>
+            Dichiarare la signal in typescript
+        </li>
+        <li>
+            Inserire una chiamata alla funzione signal fra doppi eparentesi graffe
+        </li>
+    </ol>
+</div>
+
+<p>
+    Studente: {{studente()}}
+</p>
+<h3>Event binding</h3>
+<p><button class="btn btn-primary" (click)="cambiaNome()">Cambia nome</button></p>
+<p>Per utilizzare event binding, si toglie on dal nome dell'evento e si racchiude far partentesi 
+    tonde il nome rimanente. Il valore dell'evento deve essere il nome 
+    di un metodo della classe del compoinente.<br>
+    <b>ATTENZIONE: ricordarsi le parentesi tonde dopo il nome del metodo!!!</b>
+</p>
+<div class="row">
+    <div class="col-sm-6">
+        <p>
+            Contatore: {{contatore()}}
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <p>
+            <button class="btn btn-success" (click)="incrementa()">Aumenta valore</button>
+        </p>
+    </div>
+    <div class="col-sm-3">
+        <p>
+            <button class="btn btn-danger" (click)="decrementa()">Diminuisci valore</button>
+        </p>
+    </div>
+</div>
+<h3>Property binding</h3>
+<p>
+    Una property corrisponde ad un attributo di un elemento HTML
+    Il tag img prevede un attributo obbligatorio -> src = "nome_immagine"
+    src dal punto di vista angular è una property
+</p>
+<div>
+    <p>Inserimento di un immagine in modo statico</p>
+    <img class="img-fluid img-thumbnail" src="/auto.jpg">
+    <p>Inserimento di un immagine in modo dinamico, con property binding</p>
+    <img class="img-fluid img-thumbnail" [src]="immagini[indiceImmagine()]">
+</div>
+<div class="row mt-5">
+    <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" [disabled]="indiceImmagine() == 0" (click)="precedente()">Precedente</button>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <img class="img-fluid img-thumbnail" [src]="immagini[indiceImmagine()]" alt="">
+        </div>
+    </div>
+        <div class="col-sm-3">
+        <div>
+            <button class="btn btn-primary" [disabled]="indiceImmagine() == immagini.length - 1" (click)="successivo()">Successivo</button>
+        </div>
+    </div>
+</div>
+
+<h3>Style binding</h3>
+<p>Come assegnare uno stile css ad un elemento HTML dinamico</p>
+
+
+<p style="color: blueviolet;">Questo testo è viola</p>
+<p [style.color]="colore()">Questo testo cambia di colore in modo casuale</p>
+
+<!--
+<h3>Class binding</h3>
+<p>Si mette l'attributo class fra parentesi quadre e si assegna come volore un'espressione typescript.</p>
+<p>Può essere usato nella modalità [class]="elenco di classi", oppure [class.nomeClasse]="boolean".</p>
+<p [class]="classi" [class.bg-warning]="backGround()">Il paragrafo viene impostato con classi determinate in modo dinamico.</p>
+-->

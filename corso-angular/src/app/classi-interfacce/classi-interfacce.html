@@ -1,0 +1,71 @@
+<h1 class="display-4">
+    Classi e interfacce
+</h1>
+<div class="my-5">
+    <p><u>Esempio 1</u></p>
+    @if(!classe()) {
+        <div class="my-5">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div>
+                        <input type="text" class="form-control" #inNomeClasse placeholder="Nome della classe (es. 4Bi)">
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div>
+                        <input type="text" class="form-control" #inAnnoScolastico placeholder="Anno scolastico (Formato AAAA/AAAA)">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div>
+                        <button class="btn btn-primary" (click)="creaClasse(inNomeClasse.value, inAnnoScolastico.value)">Crea classe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @else {
+        <div class="row my-3">
+            <div class="col-sm-6">
+                <h4 class="lead">Classe: {{classe()?.nomeClasse}}</h4>
+            </div>
+            <div class="col-sm-6">
+                <h4 class="lead">Anno scolastico: {{classe()?.annoScolastico}}</h4>
+            </div>
+        </div>
+        <div>
+            <h4 class="display-6">Studenti</h4>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div>
+              <input type="text" class="form-control" placeholder="Nome..." #inNomeStudente>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div>
+              <input type="text" class="form-control" placeholder="Cognome..." #inCognomeStudente>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div>
+              <input type="text" class="form-control" placeholder="Sesso [M/F]..." #inSesso>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div>
+              <button class="btn btn-primary"
+                (click)="aggiungiStudente(inNomeStudente.value, inCognomeStudente.value, inSesso.value)">
+                Aggiungi
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="my-5" [innerHTML]="classe()?.toTable()">
+        </div>
+    }
+    <p><u>Esempio 2</u></p>
+    <!-- Aggiungere visualizzazione dati del docente -->
+     
+
+</div>
