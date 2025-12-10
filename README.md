@@ -668,3 +668,6 @@ Si usa la solita tecnica di dividere le cose in componenti più piccoli e riutil
 
 Caso 1:
 - componente riceve dei dati in input non manda in output nulla, si limita a ricevere
+
+# Lezione 10/12/2025
+Spotify API
